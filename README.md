@@ -9,7 +9,7 @@ Name, Email, SIN Number and Date.
 The Name field only can be typed alphabets and space.
 The Email filed needs valid email address.
 The SIN Number filed must be typed 9 digit numbers.
-The Date only only can be typed MM-DD-YYYY.
+The Date field only only can be typed MM-DD-YYYY.
 
 The tooltips were implemented by pure css for challenge for pure css technique without any existing jQuery or javascript library. 
 
