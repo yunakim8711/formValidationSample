@@ -1,27 +1,26 @@
 // JavaScript Validation For TD Personal Information 
-
 $('document').ready(function() {
-	// name validation
+	// check for custom valid handler
+	// default - check if long enough and only alphbets and space
 	var nameregex = /^[a-zA-Z ]+$/;
 	$.validator.addMethod("validname", function(value, element) {
 		return this.optional(element) || nameregex.test(value);
 	});
-	// email validation
+	// check for valid e-mail formatting
 	var eregex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	$.validator.addMethod("validemail", function(value, element) {
 		return this.optional(element) || eregex.test(value);
 	});
-	// SIN Number validation 
+	// check for valid SIN Number (9numbers) formatting
 	var sinregex = /^\d{9}$/;
 	$.validator.addMethod("validSIN", function(value, element) {
 		return this.optional(element) || sinregex.test(value);
 	});
-	//Date Validation
-	var dateregex = /^\d{2}-\d{2}-\d{4}$/;
+	// check for valid Date
+	var dateregex = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
 	$.validator.addMethod("validDate", function(value, element) {
 		return this.optional(element) || dateregex.test(value);
 	});
-
 	$("#register-form").validate({
 		rules: {
 			fname: {
@@ -38,18 +37,15 @@ $('document').ready(function() {
 				required: true,
 				validemail: true
 			},
-			date: {
+			validTodayDatepicker: {
 				required: true,
 				validDate: true
 			},
 			sinNumber: {
 				required: true,
-				validSIN: true,
-				minlength: 9,
-				maxlength: 9
+				validSIN: true
 			},
 		},
-
 		messages: {
 			fname: {
 				required: "Please Enter First Name",
@@ -65,18 +61,16 @@ $('document').ready(function() {
 				required: "Please Enter Email Address",
 				validemail: "Enter Valid Email Address"
 			},
-			date: {
-				required: "Please Enter Date",
+			validTodayDatepicker: {
+				required: "Please Select Date",
 				validDate: "Enter Valid Date MM-DD-YYYY"
 			},
 			sinNumber: {
 				required: "Please Enter SIN",
-				validSIN: "SIN must contain only numbers",
-				minlength: "Enter 9 Numbers"
+				validSIN: "SIN must contain only 9 numbers"
 			}
 		},
-
-		//error block
+		// functions for error display
 		errorPlacement: function(error, element) {
 			$(element).closest('.form-group').find('.help-block').html(error.html());
 		},
@@ -92,7 +86,7 @@ $('document').ready(function() {
 			var fname = document.getElementById('fname').value;
 			var lname = document.getElementById('lname').value;
 			var email = document.getElementById('email').value;
-			alert("FirstName: " + fname + "\n" + "LasttName: " + lname + "\n" + "Email: " + email ) ;
+			alert("FirstName: " + fname + "\n" + "LastName: " + lname + "\n" + "Email: " + email);
 			form.submit();
 		}
 	});

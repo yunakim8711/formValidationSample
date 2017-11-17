@@ -44,8 +44,8 @@ body {
 	height: auto;
 	padding: 7px 9px;
 }
-
 /* pure css tooltip */
+
 .infoTip {
 	position: absolute !important;
 	font-size: large;
@@ -128,7 +128,6 @@ body {
 	.form-header {
 		text-align: center;
 	}
-	
 	/* pure css tooltip */
 	.infoTip>i {
 		z-index: 9999;
