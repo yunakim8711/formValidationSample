@@ -1,123 +1,218 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>TD Personal Information</title>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/personalInfoForm.css" rel="stylesheet" type="text/css">
-	
-	<!-- jQuery (necessary for datepicker plugins) -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript">
-	</script>
-	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.3/themes/south-street/ui.all.css" rel="stylesheet" type="text/css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript">
-	</script>
-	<script type="text/javascript">
-	             $.noConflict();
-	       var j = jQuery;
-	//avoid jQuery conflict
-	j(function(){           
-	   j('#validBeforeDatepicker, #validAfterDatepicker').datepicker();                       
-	   j('#validateForm').validate({               
-	       rules:{
-	           validTodayDatepicker:{                       
-	               required: true,                       
-	               dpDate: true                   
-	           }               
-	       }           
-	   });        
-	});
-	</script>
-</head>
-<body>
-	<div class="container">
-		<div class="signup-form-container">
-			<!-- form start -->
-			<form action="submit.html" autocomplete="off" id="register-form" method="post" name="register-form" role="form">
-				<div class="form-header">
-					<h3 class="form-title"><i class="fa fa-user"></i> Personal Information</h3>
-					<div class="pull-right">
-						<h3 class="form-title"></h3>
-					</div>
-				</div>
-				<div class="form-body">
-					<div class="alert alert-info" id="message" style="display:none;">
-						submitted
-					</div>
-					<div class="row">
-						<div class="form-group col-lg-3">
-							<div class="input-group col-lg-12">
-								<select class='form-control' id='title' name="title" required="">
-									<option disabled selected>
-										Title*
-									</option>
-									<option>
-										Title1
-									</option>
-									<option>
-										Title2
-									</option>
-									<option>
-										Title3
-									</option>
-									<option>
-										Title4
-									</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group col-lg-3">
-							<div class="input-group">
-								<input class="form-control" id="fname" name="fname" placeholder="First Name*" type="text">
-							</div><span class="help-block" id="error"></span>
-						</div>
-						<div class="form-group col-lg-3">
-							<div class="input-group">
-								<input class="form-control" id="mdname" name="mdname" placeholder="Middle Initial" type="text">
-							</div><span class="help-block" id="error"></span>
-						</div>
-						<div class="form-group col-lg-3">
-							<div class="input-group">
-								<input class="form-control" id="lname" name="lname" placeholder="Last Name*" type="text">
-							</div><span class="help-block" id="error"></span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-lg-6">
-							<div class="input-group col-lg-12" style="width:calc(100% - 30px)!important;">
-								<input class="form-control" id="email" name="email" placeholder="Email" type="text"> <!-- tooltip -->
-								 <span class="infoTip glyphicon glyphicon-question-sign"><i>Enter a valid email address!</i></span>
-							</div><span class="help-block" id="error"></span>
-						</div>
-						<div class="form-group col-lg-3">
-							<div class="input-group">
-								<input class='form-control customhandler' id="validBeforeDatepicker" name="validTodayDatepicker" placeholder="Date of Birth*" type="text">
-							</div><span class="help-block" id="error"></span>
-						</div>
-						<div class="form-group col-lg-3">
-							<div class="input-group col-lg-12" style="width:calc(100% - 30px)!important;">
-								<input class="form-control" id="sinNumber" name="sinNumber" placeholder="Social Insurance Number*" type="text"> <!-- tooltip -->
-								 <span class="infoTip glyphicon glyphicon-question-sign"><i>Enter 9 digit numbers!</i></span>
-							</div><span class="help-block" id="error"></span>
-						</div>
-					</div>
-				</div>
-				<!-- form buttons -->
-				<div class="form-footer">
-					<button class="btn btn-cancel" type="reset" value="Reset">Cancel</button> <button class="btn btn-submit" type="submit"><span></span> Submit</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="bootstrap/js/bootstrap.min.js">
-	</script> 
-	<script src="assets/jquery-1.11.2.min.js">
-	</script> 
-	<script src="assets/jquery.validate.min.js">
-	</script> 
-	<script src="assets/form.js">
-	</script>
-</body>
+   <head>
+      <title>TD Personal Information</title>
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+      <!-- jQuery (necessary for datepicker plugins) -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+      <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.3/themes/south-street/ui.all.css" rel="stylesheet" type="text/css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
+
+      <script type="text/javascript">
+         $.noConflict();
+         var j = jQuery;
+         //avoid jQuery conflict
+         j(function(){           
+         j('#validBeforeDatepicker, #validAfterDatepicker').datepicker();                       
+         j('#validateForm').validate({               
+         rules:{
+         validTodayDatepicker:{                       
+           required: true,                       
+           dpDate: true                   
+         }               
+         }           
+         });        
+         });
+      </script>
+
+      <link href="assets/personalInfoForm.css" rel="stylesheet" type="text/css">
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" style="float:left" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="tdLogo"></a> <button class="navbar-toggle showMobile" style="float:right" type="button"><span class="glyphicon glyphicon-lock"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav navbar-nav navFirstList">
+                  <li>
+                     <a class="headerBlock" href="#">Products</a>
+                  </li>
+                  <li>
+                     <a class="headerBlock" href="#">Claims</a>
+                  </li>
+                  <li>
+                     <a class="headerBlock" href="#">Contact Us</a>
+                  </li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                     <a class="dropdown-toggle headerBlock" data-toggle="dropdown" href="#">Ontario <span class="glyphicon glyphicon-chevron-down arrowDown"></span></a>
+                     <ul class="dropdown-menu">
+                        <li>
+                           <a href="#">Alberta</a>
+                        </li>
+                        <li>
+                           <a href="#">British Columbia</a>
+                        </li>
+                        <li>
+                           <a href="#">Manitoba</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="dropdown">
+                     <a class="dropdown-toggle headerBlock" data-toggle="dropdown" href="#">EN <span class="glyphicon glyphicon-chevron-down arrowDown"></span></a>
+                     <ul class="dropdown-menu">
+                        <li>
+                           <a href="#">English</a>
+                        </li>
+                        <li>
+                           <a href="#">French</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a class="headerBlock" href="#"><span class="glyphicon glyphicon-search"></span></a>
+                  </li>
+                  <li>
+                     <a class="headerBlock" href="#"><span class="glyphicon glyphicon-lock"></span> Login</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="flex-container">
+         <div class="nav1">
+            <h4 class="leftAlign">You are applying for:</h4>
+            <h3 class="contentTitle2 rightAsideTitle">TD&reg; Travel Medical Insurance</h3>
+            <button class="btn asideButton">See More Coverage Options</button>
+         </div>
+         <div class="container article">
+            <h3 class="form-title contentTitle">Tell Us About Yourself</h3>
+            <p>Thanks for choosing TD Insurance! In order to safely set up your new accounts and serivces, please tell us about yourself</p>
+            <div class="signup-form-container">
+               <h3 class="form-title contentTitle">Personal Information</h3>
+               <!-- form start -->
+               <form action="submit.html" autocomplete="off" id="register-form" method="post" name="register-form">
+                  <div class="form-header">
+                     <div class="pull-right">
+                     </div>
+                  </div>
+                  <div class="form-body">
+                     <div class="alert alert-info" id="message" style="display:none;">
+                        submitted
+                     </div>
+                     <div class="row">
+                        <div class="form-group col-lg-3">
+                           <div class="input-group col-lg-12">
+                              <select class='form-control' id='title' name="title" required="">
+                                 <option disabled selected>
+                                    Title*
+                                 </option>
+                                 <option>
+                                    Title1
+                                 </option>
+                                 <option>
+                                    Title2
+                                 </option>
+                                 <option>
+                                    Title3
+                                 </option>
+                                 <option>
+                                    Title4
+                                 </option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form-group col-lg-3">
+                           <div class="input-group">
+                              <input class="form-control" id="fname" name="fname" placeholder="First Name*" type="text">
+                           </div>
+                           <span class="help-block" id="error"></span>
+                        </div>
+                        <div class="form-group col-lg-3">
+                           <div class="input-group">
+                              <input class="form-control" id="mdname" name="mdname" placeholder="Middle Initial" type="text">
+                           </div>
+                           <span class="help-block" id="error"></span>
+                        </div>
+                        <div class="form-group col-lg-3">
+                           <div class="input-group">
+                              <input class="form-control" id="lname" name="lname" placeholder="Last Name*" type="text">
+                           </div>
+                           <span class="help-block" id="error"></span>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="form-group col-lg-6">
+                           <div class="input-group col-lg-12" style="width:calc(100% - 30px)!important;">
+                              <input class="form-control" id="email" name="email" placeholder="Email" type="text"> <!-- tooltip -->
+                              <span class="infoTip glyphicon glyphicon-question-sign"><i>Enter a valid email address!</i></span>
+                           </div>
+                           <span class="help-block" id="error"></span>
+                        </div>
+                        <div class="form-group col-lg-3">
+                           <div class="input-group">
+                              <input class='form-control customhandler' id="validBeforeDatepicker" name="validTodayDatepicker" placeholder="Date of Birth*" type="text">
+                           </div>
+                           <span class="help-block" id="error"></span>
+                        </div>
+                        <div class="form-group col-lg-3">
+                           <div class="input-group col-lg-12" style="width:calc(100% - 30px)!important;">
+                              <input class="form-control" id="sinNumber" name="sinNumber" placeholder="Social Insurance Number*" type="text"> <!-- tooltip -->
+                              <span class="infoTip glyphicon glyphicon-question-sign"><i>Enter 9 digit numbers!</i></span>
+                           </div>
+                           <span class="help-block" id="error"></span>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- form buttons -->
+                  <div class="form-footer">
+                     <button class="btn btn-cancel" type="reset" value="Reset">Cancel</button> <button class="btn btn-submit" type="submit"><span></span> Submit</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <footer id="myFooter">
+            <div class="footerBackgroundImage">
+               <h3>Need to talk to us directly? <span class="block-sm"><a class="block-sm" href="#">Contact us &gt;</a></span></h3>
+               <hr class="footerLine">
+               <div class="footerLinks">
+                  <ul class="footerList">
+                     <li class="smMargin">
+                        <a class="footerLists" href="#">Privacy and Security</a>
+                     </li>
+                     <li class="smMargin">
+                        <a class="footerLists" href="#">Legal</a>
+                     </li>
+                     <li class="smMargin">
+                        <a class="footerLists" href="#">Accessibility</a>
+                     </li>
+                     <li class="smMargin">
+                        <a class="footerLists" href="#">About Us</a>
+                     </li>
+                     <li class="smMargin">
+                        <a class="footerLists" href="#">Careers</a>
+                     </li>
+                  </ul>
+               </div>
+               <hr class="footerLine">
+               <div class="social-networks">
+                  <a class="iconLink" href="#"><i class="fa fa-facebook-official circleIcon"></i></a> <a class="iconLink" href="#"><i class="fa fa-twitter circleIcon"></i></a> <a class="iconLink" href="#"><i class="fa fa-youtube-play circleIcon"></i></a> <a class="iconLink" href="#"><i class="fa fa-rss circleIcon"></i></a>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="bootstrap/js/bootstrap.min.js"></script> 
+      <script src="assets/jquery-1.11.2.min.js"></script> 
+      <script src="assets/jquery.validate.min.js"></script> 
+      <script src="assets/form.js"></script>
+   </body>
 </html>
